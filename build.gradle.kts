@@ -2,7 +2,8 @@ val ktorVersion: String by project
 val kotlinVersion: String by project
 val logbackVersion: String by project
 val exposedVersion: String by project
-val hikariVersion : String by project
+val hikariVersion: String by project
+val koinVersion: String by project
 
 plugins {
     application
@@ -31,6 +32,9 @@ dependencies {
 
     // hikari
     implementation("com.zaxxer:HikariCP:$hikariVersion")
+
+    // koin
+    implementation("io.insert-koin:koin-ktor:$koinVersion")
 
     testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")

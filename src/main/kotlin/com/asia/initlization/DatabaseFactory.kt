@@ -12,7 +12,9 @@ import org.jetbrains.exposed.sql.transactions.transaction
 interface IDatabaseFactory {
     fun init()
 
-    suspend fun <T> dbQuery(block: () -> T, db: Database?): T
+    suspend fun <T> dbQueryWithDB(block: () -> T, db: Database?): T
+
+    suspend fun <T> dbQuery(block: () -> T): T
 }
 
 class DatabaseFactory : IDatabaseFactory {
@@ -38,7 +40,14 @@ class DatabaseFactory : IDatabaseFactory {
         return HikariDataSource(config)
     }
 
-    override suspend fun <T> dbQuery(block: () -> T, db: Database?): T {
+    override suspend fun <T> dbQuery(block: () -> T): T {
+        val launchResult = suspendedTransactionAsync(Dispatchers.IO) {
+            block()
+        }
+        return launchResult.await()
+    }
+
+    override suspend fun <T> dbQueryWithDB(block: () -> T, db: Database?): T {
         val launchResult = suspendedTransactionAsync(Dispatchers.IO, db = db ?: defaultDB) {
             block()
         }
