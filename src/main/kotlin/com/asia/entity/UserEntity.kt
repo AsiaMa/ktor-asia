@@ -2,6 +2,7 @@ package com.asia.entity
 
 import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.Column
+import org.jetbrains.exposed.sql.ResultRow
 
 object UserTable : IntIdTable("users") {
     val coreId: Column<Int> = integer("core_id").default(0)
@@ -49,4 +50,102 @@ object UserTable : IntIdTable("users") {
     val staffJoinNotice: Column<Int> = integer("staffJoinNotice")
     val sysPermSecond: Column<Int> = integer("sysperm_second").default(0)
     val feishu: Column<String?> = varchar("feishu", 20).nullable()
+}
+
+data class UserEntity(
+    val coreId: Int,
+    val username: String,
+    val email: String,
+    val lastLoginDate: Int,
+    val firstname: String,
+    val firstnamePinyin: String,
+    val lastname: String,
+    val lastnamePinyin: String,
+    val tel: String,
+    val sysPerm: Int,
+    val perf: Int,
+    val enabled: Int,
+    val teamId: Int?,
+    val businessTeamId: Int?,
+    val supervisorId: Int?,
+    val dateJoined: Int,
+    val dateGraduated: Int,
+    val dateQuit: Int,
+    val companyId: String,
+    val attendanceId: String,
+    val isInternship: Short,
+    val dateStarted: Int,
+    val fullName: String,
+    val isGuest: Short,
+    val dingTalk: String?,
+    val firstSchedule: Int,
+    val isAbsent: Int,
+    val fullNameFirstLetter: String,
+    val createAt: Int,
+    val avatar: String?,
+    val director: Int,
+    val sex: Short,
+    val jobStatus: Short,
+    val employeeStatus: Short,
+    val assetStatus: Short,
+    val emailStatus: Short,
+    val itStatus: Short,
+    val toCompanyTime: Int,
+    val createdUid: Int,
+    val cancelJoin: Byte,
+    val hrbpUid: Int,
+    val baseInfo: Int?,
+    val staffJoinNotice: Int,
+    val sysPermSecond: Int,
+    val feishu: String?
+) {
+    companion object {
+        fun fromResultRow(resultRow: ResultRow) = UserEntity(
+            coreId = resultRow[UserTable.coreId],
+            username = resultRow[UserTable.username],
+            email = resultRow[UserTable.email],
+            lastLoginDate = resultRow[UserTable.lastLoginDate],
+            firstname = resultRow[UserTable.firstname],
+            firstnamePinyin = resultRow[UserTable.firstnamePinyin],
+            lastname = resultRow[UserTable.lastname],
+            lastnamePinyin = resultRow[UserTable.lastnamePinyin],
+            tel = resultRow[UserTable.tel],
+            sysPerm = resultRow[UserTable.sysPerm],
+            perf = resultRow[UserTable.perf],
+            enabled = resultRow[UserTable.enabled],
+            teamId = resultRow.getOrNull(UserTable.teamId),
+            businessTeamId = resultRow.getOrNull(UserTable.businessTeamId),
+            supervisorId = resultRow.getOrNull(UserTable.supervisorId),
+            dateJoined = resultRow[UserTable.dateJoined],
+            dateGraduated = resultRow[UserTable.dateGraduated],
+            dateQuit = resultRow[UserTable.dateQuit],
+            companyId = resultRow[UserTable.companyId],
+            attendanceId = resultRow[UserTable.attendanceId],
+            isInternship = resultRow[UserTable.isInternship],
+            dateStarted = resultRow[UserTable.dateStarted],
+            fullName = resultRow[UserTable.fullName],
+            isGuest = resultRow[UserTable.isGuest],
+            dingTalk = resultRow.getOrNull(UserTable.dingTalk),
+            firstSchedule = resultRow[UserTable.firstSchedule],
+            isAbsent = resultRow[UserTable.isAbsent],
+            fullNameFirstLetter = resultRow[UserTable.fullNameFirstLetter],
+            createAt = resultRow[UserTable.createAt],
+            avatar = resultRow.getOrNull(UserTable.avatar),
+            director = resultRow[UserTable.director],
+            sex = resultRow[UserTable.sex],
+            jobStatus = resultRow[UserTable.jobStatus],
+            employeeStatus = resultRow[UserTable.employeeStatus],
+            assetStatus = resultRow[UserTable.assetStatus],
+            emailStatus = resultRow[UserTable.emailStatus],
+            itStatus = resultRow[UserTable.itStatus],
+            toCompanyTime = resultRow[UserTable.toCompanyTime],
+            createdUid = resultRow[UserTable.createdUid],
+            cancelJoin = resultRow[UserTable.cancelJoin],
+            hrbpUid = resultRow[UserTable.hrbpUid],
+            baseInfo = resultRow[UserTable.baseInfo],
+            staffJoinNotice = resultRow[UserTable.staffJoinNotice],
+            sysPermSecond = resultRow[UserTable.sysPermSecond],
+            feishu = resultRow.getOrNull(UserTable.feishu),
+        )
+    }
 }
