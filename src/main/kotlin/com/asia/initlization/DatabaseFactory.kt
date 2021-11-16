@@ -1,4 +1,4 @@
-package com.asia.dao
+package com.asia.initlization
 
 import com.asia.entity.UserTable
 import com.zaxxer.hikari.HikariConfig

@@ -1,6 +1,6 @@
 package com.asia.plugins
 
-import com.asia.dao.IDatabaseFactory
+import com.asia.initlization.IDatabaseFactory
 import io.ktor.application.*
 import org.koin.ktor.ext.inject
 

@@ -4,6 +4,7 @@ val logbackVersion: String by project
 val exposedVersion: String by project
 val hikariVersion: String by project
 val koinVersion: String by project
+val assertjVersion: String by project
 
 plugins {
     application
@@ -38,4 +39,5 @@ dependencies {
 
     testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
+    testImplementation("org.assertj:assertj-core:$assertjVersion")
 }

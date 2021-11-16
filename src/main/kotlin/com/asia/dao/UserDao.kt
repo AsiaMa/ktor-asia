@@ -2,6 +2,7 @@ package com.asia.dao
 
 import com.asia.entity.UserEntity
 import com.asia.entity.UserTable
+import com.asia.initlization.IDatabaseFactory
 import org.jetbrains.exposed.sql.selectAll
 
 class UserDao(private val database: IDatabaseFactory) {
