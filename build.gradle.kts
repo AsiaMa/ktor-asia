@@ -1,9 +1,10 @@
-val ktorVersion: String by project
 val kotlinVersion: String by project
-val logbackVersion: String by project
+val ktorVersion: String by project
+val koinVersion: String by project
+val mysqlVersion: String by project
 val exposedVersion: String by project
 val hikariVersion: String by project
-val koinVersion: String by project
+val logbackVersion: String by project
 val assertjVersion: String by project
 
 plugins {
@@ -29,6 +30,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 
 dependencies {
     // kotlin
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
 
     // ktor
@@ -41,6 +43,9 @@ dependencies {
     implementation("io.insert-koin:koin-logger-slf4j:$koinVersion")
     testImplementation("io.insert-koin:koin-test:$koinVersion")
     testImplementation("io.insert-koin:koin-test-junit4:$koinVersion")
+
+    // mysql
+    implementation("mysql:mysql-connector-java:$mysqlVersion")
 
     // exposed
     implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")

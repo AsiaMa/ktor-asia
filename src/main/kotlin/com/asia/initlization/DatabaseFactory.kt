@@ -31,7 +31,7 @@ class DatabaseFactory : IDatabaseFactory {
         val config = HikariConfig().apply {
             driverClassName = "com.mysql.cj.jdbc.Driver"
             jdbcUrl = "jdbc:mysql://localhost/oasis_oa"
-            username = "localhost"
+            username = "root"
             password = "123456"
             maximumPoolSize = 10
             isAutoCommit = false
