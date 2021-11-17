@@ -21,10 +21,26 @@ repositories {
     mavenCentral()
 }
 
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+
 dependencies {
+    // kotlin
+    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
+
+    // ktor
     implementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
-    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
+
+    // koin
+    implementation("io.insert-koin:koin-ktor:$koinVersion")
+    implementation("org.koin:koin-logger-slf4j:$koinVersion")
+    testImplementation("io.insert-koin:koin-test:$koinVersion")
+    testImplementation("io.insert-koin:koin-test-junit4:$koinVersion")
 
     // exposed
     implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
@@ -34,10 +50,9 @@ dependencies {
     // hikari
     implementation("com.zaxxer:HikariCP:$hikariVersion")
 
-    // koin
-    implementation("io.insert-koin:koin-ktor:$koinVersion")
+    // logging
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
 
-    testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
+    // junit
     testImplementation("org.assertj:assertj-core:$assertjVersion")
 }
