@@ -53,6 +53,6 @@ dependencies {
     // logging
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
 
-    // junit
+    // test
     testImplementation("org.assertj:assertj-core:$assertjVersion")
 }
