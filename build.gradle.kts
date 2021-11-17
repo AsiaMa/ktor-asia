@@ -38,7 +38,7 @@ dependencies {
 
     // koin
     implementation("io.insert-koin:koin-ktor:$koinVersion")
-    implementation("org.koin:koin-logger-slf4j:$koinVersion")
+    implementation("io.insert-koin:koin-logger-slf4j:$koinVersion")
     testImplementation("io.insert-koin:koin-test:$koinVersion")
     testImplementation("io.insert-koin:koin-test-junit4:$koinVersion")
 
