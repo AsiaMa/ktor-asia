@@ -5,6 +5,7 @@ import io.ktor.features.*
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
+import org.slf4j.MDC
 
 fun Application.configureRouting() {
     // add Server and Date headers into each response
@@ -17,10 +18,12 @@ fun Application.configureRouting() {
         // 改变日志的级别 default: Level.INFO
 //        level = Level.TRACE
 
+        // 过滤
         filter { call ->
             call.request.path().startsWith("/he")
         }
 
+        // 格式化日志输出
         format { call ->
             val uri = call.request.uri
             val status = call.response.status()
@@ -29,6 +32,7 @@ fun Application.configureRouting() {
             "uri: $uri, Status: $status, HTTP method: $httpMethod, User agent: $userAgent"
         }
 
+        // 类似于 ThreadLocal
         mdc("name-parameter") { call ->
             call.request.queryParameters["name"]
         }
@@ -37,7 +41,8 @@ fun Application.configureRouting() {
     // Starting point for a Ktor app:
     routing {
         get("/hello") {
-            call.respondText("Hello World!")
+            val name = MDC.get("name-parameter")
+            call.respondText("Hello World! $name")
         }
     }
     routing {
