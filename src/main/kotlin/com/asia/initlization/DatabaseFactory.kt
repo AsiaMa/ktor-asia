@@ -45,7 +45,7 @@ class DatabaseFactory : IDatabaseFactory {
     private fun runFlyway(datasource: DataSource) {
         val flyway = Flyway.configure()
             .dataSource(datasource)
-            .locations("classpath:com/asia/db/migration")
+            .locations("classpath:com/asia/db/migration", "classpath:db/migration/mysql")
             .load()
         try {
             flyway.info()
