@@ -16,6 +16,7 @@ group = "com.asia"
 version = "0.0.1"
 application {
     mainClass.set("io.ktor.server.netty.EngineMain")
+//    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=true")
 }
 
 repositories {
