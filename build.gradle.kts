@@ -6,10 +6,12 @@ val exposedVersion: String by project
 val hikariVersion: String by project
 val logbackVersion: String by project
 val assertjVersion: String by project
+val flywayVersion: String by project
 
 plugins {
     application
     kotlin("jvm") version "1.5.31"
+    id("org.flywaydb.flyway") version "7.15.0"
 }
 
 group = "com.asia"
@@ -48,17 +50,29 @@ dependencies {
     // mysql
     implementation("mysql:mysql-connector-java:$mysqlVersion")
 
+    // hikari
+    implementation("com.zaxxer:HikariCP:$hikariVersion")
+
     // exposed
     implementation("org.jetbrains.exposed:exposed-core:$exposedVersion")
     implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
 
-    // hikari
-    implementation("com.zaxxer:HikariCP:$hikariVersion")
+    // flywaydb
+    implementation("org.flywaydb:flyway-core:$flywayVersion")
 
     // logging
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
 
     // test
     testImplementation("org.assertj:assertj-core:$assertjVersion")
+}
+
+
+flyway {
+    driver = "com.mysql.cj.jdbc.Driver"
+    url = "jdbc:mysql://localhost/my_ktor?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT"
+    user = "root"
+    password = "123456"
+    locations = arrayOf("classpath:com/asia/db/migration")
 }
