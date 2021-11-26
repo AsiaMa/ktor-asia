@@ -1,4 +1,4 @@
-package com.asia.initlization
+package com.asia.db
 
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
