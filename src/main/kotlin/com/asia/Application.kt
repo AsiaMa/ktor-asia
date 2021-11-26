@@ -3,6 +3,7 @@ package com.asia
 import com.asia.plugins.configureDatabase
 import com.asia.plugins.configureKoin
 import com.asia.plugins.configureRouting
+import com.asia.plugins.configureSerialization
 import io.ktor.application.*
 
 fun main(args: Array<String>): Unit =
@@ -12,5 +13,6 @@ fun main(args: Array<String>): Unit =
 fun Application.module() {
     configureKoin()
     configureDatabase()
+    configureSerialization()
     configureRouting()
 }

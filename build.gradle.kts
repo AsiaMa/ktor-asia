@@ -11,6 +11,7 @@ val flywayVersion: String by project
 plugins {
     application
     kotlin("jvm") version "1.5.31"
+    kotlin("plugin.serialization") version "1.5.31"
     id("org.flywaydb.flyway") version "7.15.0"
 }
 
@@ -39,6 +40,7 @@ dependencies {
     // ktor
     implementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-server-netty:$ktorVersion")
+    implementation("io.ktor:ktor-serialization:$ktorVersion")
     testImplementation("io.ktor:ktor-server-tests:$ktorVersion")
 
     // koin
