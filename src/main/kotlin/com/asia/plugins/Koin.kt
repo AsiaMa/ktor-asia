@@ -1,6 +1,6 @@
 package com.asia.plugins
 
-import com.asia.databaseKoinModule
+import com.asia.initlization.databaseKoinModule
 import io.ktor.application.*
 import org.koin.ktor.ext.Koin
 import org.koin.logger.slf4jLogger

@@ -1,4 +1,4 @@
-package com.asia
+package com.asia.initlization
 
 import com.asia.db.DatabaseFactory
 import com.asia.db.IDatabaseFactory
