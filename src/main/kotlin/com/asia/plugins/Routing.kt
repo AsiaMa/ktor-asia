@@ -1,5 +1,8 @@
 package com.asia.plugins
 
+import com.asia.model.Lotto
+import com.asia.model.LottoVO
+import com.asia.model.Winner
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.request.*
@@ -47,9 +50,13 @@ fun Application.configureRouting() {
     }
     routing {
         get("/lotto") {
-            val json =
-                """{"lotto":{"lottoId":5,"winning-numbers":[2,45,34,23,7,5,3],"winners":[{"winnerId":23,"numbers":[2,45,34,23,3,5]},{"winnerId":54,"numbers":[52,3,12,11,18,22]}]}}"""
-            call.respondText(json)
+            val winner1 = Winner(23, listOf(2, 45, 34, 23, 3, 5))
+            val winner2 = Winner(54, listOf(52, 3, 12, 11, 18, 22))
+
+            val lotto = Lotto(5, listOf(2, 45, 34, 23, 7, 5, 3), listOf(winner1, winner2))
+
+            val lottoVO = LottoVO(lotto = lotto)
+            call.respond(lottoVO)
         }
     }
 }

@@ -69,7 +69,8 @@ dependencies {
     // test
     testImplementation("org.assertj:assertj-core:$assertjVersion")
     testImplementation("io.rest-assured:rest-assured:4.4.0")
-
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.1")
 }
 
 
@@ -79,4 +80,9 @@ flyway {
     user = "root"
     password = "123456"
     locations = arrayOf("classpath:com/asia/db/migration")
+}
+
+tasks.test {
+    // Use the built-in JUnit support of Gradle.
+    useJUnitPlatform()
 }
