@@ -1,14 +1,10 @@
 package com.asia.plugins
 
-import com.asia.model.Lotto
-import com.asia.model.LottoVO
-import com.asia.model.Winner
+import com.asia.config.api
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.request.*
-import io.ktor.response.*
 import io.ktor.routing.*
-import org.slf4j.MDC
 
 fun Application.configureRouting() {
     // add Server and Date headers into each response
@@ -19,7 +15,7 @@ fun Application.configureRouting() {
     install(DefaultHeaders)
     install(CallLogging) {
         // 改变日志的级别 default: Level.INFO
-//        level = Level.TRACE
+        // level = Level.TRACE
 
         // 过滤
         filter { call ->
@@ -43,20 +39,10 @@ fun Application.configureRouting() {
 
     // Starting point for a Ktor app:
     routing {
-        get("/hello") {
-            val name = MDC.get("name-parameter")
-            call.respondText("Hello World! $name")
-        }
-    }
-    routing {
-        get("/lotto") {
-            val winner1 = Winner(23, listOf(2, 45, 34, 23, 3, 5))
-            val winner2 = Winner(54, listOf(52, 3, 12, 11, 18, 22))
+        install(StatusPages) {
 
-            val lotto = Lotto(5, listOf(2, 45, 34, 23, 7, 5, 3), listOf(winner1, winner2))
-
-            val lottoVO = LottoVO(lotto = lotto)
-            call.respond(lottoVO)
         }
+
+        api()
     }
 }

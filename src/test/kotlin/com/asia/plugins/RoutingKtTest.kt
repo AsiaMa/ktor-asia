@@ -10,7 +10,7 @@ class RoutingKtTest {
     @Test
     fun testGetHello() {
         withTestApplication({ configureRouting() }) {
-            handleRequest(HttpMethod.Get, "/hello?name=abc").apply {
+            handleRequest(HttpMethod.Get, "api/hello?name=abc").apply {
                 assertEquals(HttpStatusCode.OK, response.status())
                 assertEquals("Hello World! abc", response.content)
             }

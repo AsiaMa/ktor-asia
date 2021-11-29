@@ -1,6 +1,6 @@
 package com.asia.db.migration
 
-import com.asia.entity.UserTable
+import com.asia.repository.entity.UserTable
 import org.flywaydb.core.api.migration.BaseJavaMigration
 import org.flywaydb.core.api.migration.Context
 import org.jetbrains.exposed.sql.SchemaUtils

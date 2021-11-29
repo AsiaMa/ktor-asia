@@ -26,7 +26,7 @@ class LottoControllerTest : BaseWebTest() {
     @Test
     fun testGetLotto() {
 
-        get("/lotto")
+        get("api/lotto")
             .then()
             .statusCode(200)
             .body("lotto.lottoId", equalTo(5))
@@ -34,7 +34,7 @@ class LottoControllerTest : BaseWebTest() {
 
     @Test
     fun testGetLotto2() {
-        get("/lotto")
+        get("api/lotto")
             .then()
             .body("lotto.winners.winnerId", hasItems(23, 54))
     }

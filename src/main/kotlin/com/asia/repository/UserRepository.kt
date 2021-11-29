@@ -1,8 +1,8 @@
 package com.asia.repository
 
 import com.asia.db.IDatabaseFactory
-import com.asia.entity.UserEntity
-import com.asia.entity.UserTable
+import com.asia.repository.entity.UserEntity
+import com.asia.repository.entity.UserTable
 import org.jetbrains.exposed.sql.selectAll
 
 class UserRepository(private val database: IDatabaseFactory) {
