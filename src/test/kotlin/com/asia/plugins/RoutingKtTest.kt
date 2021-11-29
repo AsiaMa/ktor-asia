@@ -2,7 +2,7 @@ package com.asia.plugins
 
 import io.ktor.http.*
 import io.ktor.server.testing.*
-import kotlin.test.Test
+import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 class RoutingKtTest {
