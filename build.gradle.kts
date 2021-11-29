@@ -68,6 +68,8 @@ dependencies {
 
     // test
     testImplementation("org.assertj:assertj-core:$assertjVersion")
+    testImplementation("io.rest-assured:rest-assured:4.4.0")
+
 }
 
 
