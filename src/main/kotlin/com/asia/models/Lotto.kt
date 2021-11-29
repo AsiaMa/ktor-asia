@@ -1,4 +1,4 @@
-package com.asia.model
+package com.asia.models
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

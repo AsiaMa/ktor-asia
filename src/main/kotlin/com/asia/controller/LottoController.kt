@@ -1,8 +1,8 @@
 package com.asia.controller
 
-import com.asia.model.Lotto
-import com.asia.model.LottoVO
-import com.asia.model.Winner
+import com.asia.models.Lotto
+import com.asia.models.LottoVO
+import com.asia.models.Winner
 import io.ktor.application.*
 import io.ktor.response.*
 

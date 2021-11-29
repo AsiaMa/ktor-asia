@@ -1,6 +1,7 @@
 package com.asia.plugins
 
 import com.asia.config.api
+import com.asia.config.statusPages
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.request.*
@@ -40,7 +41,7 @@ fun Application.configureRouting() {
     // Starting point for a Ktor app:
     routing {
         install(StatusPages) {
-
+            statusPages()
         }
 
         api()
