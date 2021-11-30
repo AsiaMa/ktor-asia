@@ -1,6 +1,7 @@
 package com.asia.plugins
 
 import com.asia.config.api
+import com.asia.config.cors
 import com.asia.config.statusPages
 import io.ktor.application.*
 import io.ktor.features.*
@@ -8,6 +9,13 @@ import io.ktor.request.*
 import io.ktor.routing.*
 
 fun Application.configureRouting() {
+    /*
+        configure allowed hosts, HTTP methods, headers
+     */
+    install(CORS) {
+        cors()
+    }
+
     // add Server and Date headers into each response
     /*
        Date: Wed, 17 Nov 2021 11:33:30 GMT
