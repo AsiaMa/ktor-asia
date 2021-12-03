@@ -24,7 +24,7 @@ fun CORS.Configuration.cors() {
 
     // By default, browsers don't send credential information (such as cookies or authentication information) with cross-origin requests.
     // To allow passing this information
-    allowCredentials = true
+    // allowCredentials = true
 
     allowSameOrigin = true
 
