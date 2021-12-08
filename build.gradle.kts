@@ -7,11 +7,12 @@ val hikariVersion: String by project
 val logbackVersion: String by project
 val assertjVersion: String by project
 val flywayVersion: String by project
+val junitVersion: String by project
 
 plugins {
     application
-    kotlin("jvm") version "1.5.31"
-    kotlin("plugin.serialization") version "1.5.31"
+    kotlin("jvm") version "1.6.0"
+    kotlin("plugin.serialization") version "1.6.0"
     id("org.flywaydb.flyway") version "7.15.0"
 }
 
@@ -70,8 +71,8 @@ dependencies {
     // test
     testImplementation("org.assertj:assertj-core:$assertjVersion")
     testImplementation("io.rest-assured:rest-assured:4.4.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-    testImplementation("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
 }
 
 
