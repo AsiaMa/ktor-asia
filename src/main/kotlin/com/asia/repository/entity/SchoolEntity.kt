@@ -20,6 +20,7 @@ class SchoolEntity(id: EntityID<Int>) : IntEntity(id) {
 
     var name by SchoolTable.name
     var address by SchoolTable.address
+    val students by StudentEntity referrersOn StudentTable.school
     var createTime by SchoolTable.createTime
     var updateTime by SchoolTable.updateTime
 }

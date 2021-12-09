@@ -11,7 +11,7 @@ import java.time.Instant
 object StudentTable : IntIdTable("student") {
     val name: Column<String> = varchar("name", 64).default("")
     val age: Column<Int> = integer("age").default(0)
-    val schoolId = reference("school_id", SchoolTable)
+    val school = reference("school_id", SchoolTable)
     val createTime: Column<Instant> = timestamp("create_time").default(Instant.now())
     val updateTime: Column<Instant> = timestamp("update_time").default(Instant.now())
 }
@@ -21,9 +21,9 @@ class StudentEntity(id: EntityID<Int>) : IntEntity(id) {
 
     var name by StudentTable.name
     var age by StudentTable.age
-    val school by StudentTable.schoolId
+    var school by SchoolEntity referencedOn StudentTable.school
     val createTime by StudentTable.createTime
-    val updateTable by StudentTable.updateTime
+    val updateTime by StudentTable.updateTime
 }
 
 
