@@ -11,5 +11,6 @@ fun Route.api() {
         school()
         student()
         article()
+        tag()
     }
 }

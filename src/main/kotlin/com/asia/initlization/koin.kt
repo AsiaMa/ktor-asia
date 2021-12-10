@@ -2,14 +2,8 @@ package com.asia.initlization
 
 import com.asia.db.DatabaseFactory
 import com.asia.db.IDatabaseFactory
-import com.asia.repository.ArticleRepository
-import com.asia.repository.CompanyRepository
-import com.asia.repository.SchoolRepository
-import com.asia.repository.StudentRepository
-import com.asia.service.ArticleService
-import com.asia.service.CompanyService
-import com.asia.service.SchoolService
-import com.asia.service.StudentService
+import com.asia.repository.*
+import com.asia.service.*
 import org.koin.dsl.module
 
 val serviceKoinModule = module {
@@ -17,6 +11,7 @@ val serviceKoinModule = module {
     single { SchoolService(get()) }
     single { StudentService(get()) }
     single { ArticleService(get()) }
+    single { TagService(get()) }
 }
 
 val repositoryKoinModule = module {
@@ -24,6 +19,7 @@ val repositoryKoinModule = module {
     single { SchoolRepository(get()) }
     single { StudentRepository(get()) }
     single { ArticleRepository(get()) }
+    single { TagRepository(get()) }
 }
 
 val databaseKoinModule = module(createdAtStart = true) {
