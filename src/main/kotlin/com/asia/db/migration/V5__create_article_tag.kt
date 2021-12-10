@@ -17,15 +17,15 @@ class V5__create_article_tag : BaseJavaMigration() {
             }
 
             val javaTag = TagEntity.new {
-                tag = "JAVA"
+                tagName = "JAVA"
             }
 
             val kotlinTag = TagEntity.new {
-                tag = "Kotlin"
+                tagName = "Kotlin"
             }
 
             val cTag = TagEntity.new {
-                tag = "C"
+                tagName = "C"
             }
 
 
@@ -38,7 +38,7 @@ class V5__create_article_tag : BaseJavaMigration() {
             val studentEntity2 = StudentEntity.findById(2) ?: StudentEntity.new { }
 
             val phpTag = TagEntity.new {
-                tag = "PHP"
+                tagName = "PHP"
             }
 
             val niuArticleEntity = ArticleEntity.new {

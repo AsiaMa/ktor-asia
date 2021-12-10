@@ -10,5 +10,6 @@ fun Route.api() {
         company()
         school()
         student()
+        article()
     }
 }

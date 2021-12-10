@@ -12,7 +12,7 @@ object TagTable : IntIdTable("tag") {
 class TagEntity(id: EntityID<Int>) : IntEntity(id) {
     companion object : IntEntityClass<TagEntity>(TagTable)
 
-    var tag by TagTable.tagName
+    var tagName by TagTable.tagName
     var articles by ArticleEntity via ArticleTagTable
 }
 
