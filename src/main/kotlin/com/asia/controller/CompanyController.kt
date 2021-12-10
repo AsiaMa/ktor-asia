@@ -1,5 +1,6 @@
 package com.asia.controller
 
+import com.asia.models.query.CompanyQuery
 import com.asia.service.CompanyService
 import io.ktor.application.*
 import io.ktor.http.*
@@ -17,5 +18,3 @@ object CompanyController : KoinComponent {
         call.respond(HttpStatusCode.Created, "ok")
     }
 }
-
-data class CompanyQuery(val name: String, val tel: String)

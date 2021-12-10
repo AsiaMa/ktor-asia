@@ -12,6 +12,7 @@ val junitVersion: String by project
 plugins {
     application
     kotlin("jvm") version "1.5.31"
+    kotlin("kapt") version "1.5.31"
     kotlin("plugin.serialization") version "1.5.31"
     id("org.flywaydb.flyway") version "7.15.0"
 }
@@ -65,6 +66,11 @@ dependencies {
 
     // flywaydb
     implementation("org.flywaydb:flyway-core:$flywayVersion")
+
+    // mapstruct
+    implementation("org.mapstruct:mapstruct:1.4.2.Final")
+    kapt("org.mapstruct:mapstruct-processor:1.4.2.Final")
+    // testAnnotationProcessor("org.mapstruct:mapstruct-processor:1.4.2.Final")
 
     // logging
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
