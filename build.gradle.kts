@@ -88,7 +88,7 @@ flyway {
     url = "jdbc:mysql://localhost/my_ktor?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT"
     user = "root"
     password = "123456"
-    locations = arrayOf("classpath:com/asia/db/migration")
+    locations = arrayOf("classpath:com/asia/db/migration", "classpath:db/migration/mysql")
 }
 
 tasks.test {

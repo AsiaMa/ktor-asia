@@ -8,6 +8,6 @@ object HelloController {
 
     suspend fun hello(call: ApplicationCall) {
         val name = MDC.get("name-parameter")
-        call.respondText("Hello World! $name")
+        call.respondText("Hello World! sdf $name")
     }
 }
