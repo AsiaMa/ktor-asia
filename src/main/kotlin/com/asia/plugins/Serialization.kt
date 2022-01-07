@@ -11,5 +11,6 @@ fun Application.configureSerialization() {
         jackson {
             enable(SerializationFeature.INDENT_OUTPUT)
         }
+        // gson {  }
     }
 }
